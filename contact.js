@@ -68,4 +68,3 @@ form.addEventListener('submit', async (e) => {
       this.style.transform = 'translateY(0) scale(1)';
     });
   });
-});
