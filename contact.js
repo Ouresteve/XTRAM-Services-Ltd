@@ -23,7 +23,7 @@ form.addEventListener('submit', async (e) => {
 
         if (response.ok) {
             alert("Success! Your message has been sent. We will get back to you soon.");
-            form.reset();
+            this.reset();
         } else {
             alert("Error: " + data.message);
         }
@@ -34,7 +34,7 @@ form.addEventListener('submit', async (e) => {
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;
     }
-    this.reset();
+    
 });
   // Intersection Observer for animations
   const observerOptions = {
