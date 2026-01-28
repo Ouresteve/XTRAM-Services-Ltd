@@ -1,29 +1,41 @@
 // Contact page functionality
-document.addEventListener('DOMContentLoaded', function() {
-  // Form submission
-  const contactForm = document.getElementById('contactForm');
+const form = document.getElementById('form');
+const submitBtn = form.querySelector('button[type="submit"]');
 
-  contactForm.addEventListener('submit', function(e) {
+form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // Get form data
-    const formData = new FormData(this);
-    const data = Object.fromEntries(formData);
+    const formData = new FormData(form);
+    formData.append("access_key", "e1a61131-b156-4681-be87-40bac9764c2d");
 
-    // Basic validation
-    if (!data.name || !data.email || !data.message) {
-      alert('Please fill in all required fields.');
-      return;
+    const originalText = submitBtn.textContent;
+
+    submitBtn.textContent = "Sending...";
+    submitBtn.disabled = true;
+
+    try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            alert("Success! Your message has been sent. We will get back to you soon.");
+            form.reset();
+        } else {
+            alert("Error: " + data.message);
+        }
+
+    } catch (error) {
+        alert("Something went wrong. Please try again.");
+    } finally {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
     }
-
-    // For demo purposes, show success message
-    // In a real application, you would send this data to a server
-    alert('Thank you for your message! We will get back to you soon.');
-
-    // Reset form
     this.reset();
-  });
-
+});
   // Intersection Observer for animations
   const observerOptions = {
     threshold: 0.1,
