@@ -1,6 +1,6 @@
 // Contact page functionality
-const form = document.getElementById('form');
-const submitBtn = form.querySelector('button');
+const form = document.getElementById('contactForm');
+const submitBtn = form.querySelector('button[type="submit"]');
 
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -12,7 +12,7 @@ form.addEventListener('submit', async (e) => {
 
     submitBtn.textContent = "Sending...";
     submitBtn.disabled = true;
-    
+    this.reset();
     try {
         const response = await fetch("https://api.web3forms.com/submit", {
             method: "POST",
