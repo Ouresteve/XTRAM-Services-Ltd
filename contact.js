@@ -1,6 +1,6 @@
 // Contact page functionality
 const form = document.getElementById('form');
-const submitBtn = form.querySelector('button[type="submit"]');
+const submitBtn = form.querySelector('button');
 
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
