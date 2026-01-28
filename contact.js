@@ -6,7 +6,7 @@ form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const formData = new FormData(form);
-    formData.append("access_key:", "e1a61131-b156-4681-be87-40bac9764c2d");
+    formData.append("access_key", "e1a61131-b156-4681-be87-40bac9764c2d");
 
     const originalText = submitBtn.textContent;
 
@@ -16,10 +16,7 @@ form.addEventListener('submit', async (e) => {
     try {
         const response = await fetch("https://api.web3forms.com/submit", {
             method: "POST",
-            headers: {
-              'Content-Type': 'application/json',
-              'Accept': 'application/json'
-        },
+    
             body: JSON.stringify(formData)
         });
 
