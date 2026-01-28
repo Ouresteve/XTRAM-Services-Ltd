@@ -16,7 +16,8 @@ form.addEventListener('submit', async (e) => {
     try {
         const response = await fetch("https://api.web3forms.com/submit", {
             method: "POST",
-            body: formData
+            
+            body: JSON.stringify(formData)
         });
 
         const data = await response.json();
