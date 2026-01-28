@@ -87,11 +87,13 @@
   <div class="container">
     <h2 class="section-title">Send Us a Message</h2>
     <div class="form-container">
-      <form id="contactForm" action="#" method="post">
+      <form id="contactForm" action="https://api.web3forms.com/submit" method="post">
         <div class="form-row">
           <div class="form-group">
             <label for="name">Full Name *</label>
             <input type="text" id="name" name="name" required>
+            <input type="hidden" name="access_key" value="e1a61131-b156-4681-be87-40bac9764c2d">
+
           </div>
           <div class="form-group">
             <label for="email">Email Address *</label>
